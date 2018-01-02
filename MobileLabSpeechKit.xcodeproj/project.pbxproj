@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5178C3E49D641EAE7BFBAC10 /* Pods_MobileLabSpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A28BB4FD8D7090586ADCE9C /* Pods_MobileLabSpeechKit.framework */; };
 		6A0C6AA91FF98F020008E029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C6AA81FF98F020008E029 /* AppDelegate.swift */; };
 		6A0C6AAB1FF98F020008E029 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0C6AAA1FF98F020008E029 /* ViewController.swift */; };
-		6A0C6AAE1FF98F020008E029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A0C6AAC1FF98F020008E029 /* Main.storyboard */; };
-		6A0C6AB01FF98F020008E029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A0C6AAF1FF98F020008E029 /* Assets.xcassets */; };
-		6A0C6AB31FF98F020008E029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A0C6AB11FF98F020008E029 /* LaunchScreen.storyboard */; };
+		6A0C6AC11FFBE30D0008E029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A0C6ABB1FFBE30D0008E029 /* Assets.xcassets */; };
+		6A0C6AC21FFBE30D0008E029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A0C6ABC1FFBE30D0008E029 /* LaunchScreen.storyboard */; };
+		6A0C6AC31FFBE30D0008E029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A0C6ABE1FFBE30D0008E029 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A28BB4FD8D7090586ADCE9C /* Pods_MobileLabSpeechKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileLabSpeechKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3681ADECA69C8F7A3874DAE4 /* Pods-MobileLabSpeechKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileLabSpeechKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MobileLabSpeechKit/Pods-MobileLabSpeechKit.debug.xcconfig"; sourceTree = "<group>"; };
 		6A0C6AA51FF98F020008E029 /* MobileLabSpeechKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileLabSpeechKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A0C6AA81FF98F020008E029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6A0C6AAA1FF98F020008E029 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6A0C6AAD1FF98F020008E029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6A0C6AAF1FF98F020008E029 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6A0C6AB21FF98F020008E029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6A0C6AB41FF98F020008E029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A0C6ABB1FFBE30D0008E029 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6A0C6ABD1FFBE30D0008E029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6A0C6ABF1FFBE30D0008E029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6A0C6AC01FFBE30D0008E029 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DED130387C6A24D3AF8F82D6 /* Pods-MobileLabSpeechKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileLabSpeechKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MobileLabSpeechKit/Pods-MobileLabSpeechKit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5178C3E49D641EAE7BFBAC10 /* Pods_MobileLabSpeechKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66247FC92F73DB1433FD68A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3681ADECA69C8F7A3874DAE4 /* Pods-MobileLabSpeechKit.debug.xcconfig */,
+				DED130387C6A24D3AF8F82D6 /* Pods-MobileLabSpeechKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6A0C6A9C1FF98F020008E029 = {
 			isa = PBXGroup;
 			children = (
 				6A0C6AA71FF98F020008E029 /* MobileLabSpeechKit */,
 				6A0C6AA61FF98F020008E029 /* Products */,
+				66247FC92F73DB1433FD68A3 /* Pods */,
+				FCED351056B4E5A535A5E85E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +72,28 @@
 			children = (
 				6A0C6AA81FF98F020008E029 /* AppDelegate.swift */,
 				6A0C6AAA1FF98F020008E029 /* ViewController.swift */,
-				6A0C6AAC1FF98F020008E029 /* Main.storyboard */,
-				6A0C6AAF1FF98F020008E029 /* Assets.xcassets */,
-				6A0C6AB11FF98F020008E029 /* LaunchScreen.storyboard */,
-				6A0C6AB41FF98F020008E029 /* Info.plist */,
+				6A0C6ABA1FFBE30D0008E029 /* Resources */,
 			);
 			path = MobileLabSpeechKit;
+			sourceTree = "<group>";
+		};
+		6A0C6ABA1FFBE30D0008E029 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6A0C6ABE1FFBE30D0008E029 /* Main.storyboard */,
+				6A0C6ABC1FFBE30D0008E029 /* LaunchScreen.storyboard */,
+				6A0C6ABB1FFBE30D0008E029 /* Assets.xcassets */,
+				6A0C6AC01FFBE30D0008E029 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FCED351056B4E5A535A5E85E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A28BB4FD8D7090586ADCE9C /* Pods_MobileLabSpeechKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6A0C6AB71FF98F020008E029 /* Build configuration list for PBXNativeTarget "MobileLabSpeechKit" */;
 			buildPhases = (
+				ACAE7765F1593821C4BCBD10 /* [CP] Check Pods Manifest.lock */,
 				6A0C6AA11FF98F020008E029 /* Sources */,
 				6A0C6AA21FF98F020008E029 /* Frameworks */,
 				6A0C6AA31FF98F020008E029 /* Resources */,
+				97F5A14E1A58B0A5D7326AA5 /* [CP] Embed Pods Frameworks */,
+				4CE248C16E1CAAD37F196108 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,13 +158,67 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A0C6AB31FF98F020008E029 /* LaunchScreen.storyboard in Resources */,
-				6A0C6AB01FF98F020008E029 /* Assets.xcassets in Resources */,
-				6A0C6AAE1FF98F020008E029 /* Main.storyboard in Resources */,
+				6A0C6AC31FFBE30D0008E029 /* Main.storyboard in Resources */,
+				6A0C6AC11FFBE30D0008E029 /* Assets.xcassets in Resources */,
+				6A0C6AC21FFBE30D0008E029 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4CE248C16E1CAAD37F196108 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileLabSpeechKit/Pods-MobileLabSpeechKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97F5A14E1A58B0A5D7326AA5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MobileLabSpeechKit/Pods-MobileLabSpeechKit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftSiriWaveformView/SwiftSiriWaveformView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSiriWaveformView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MobileLabSpeechKit/Pods-MobileLabSpeechKit-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACAE7765F1593821C4BCBD10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileLabSpeechKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6A0C6AA11FF98F020008E029 /* Sources */ = {
@@ -144,20 +233,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6A0C6AAC1FF98F020008E029 /* Main.storyboard */ = {
+		6A0C6ABC1FFBE30D0008E029 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6A0C6AAD1FF98F020008E029 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		6A0C6AB11FF98F020008E029 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6A0C6AB21FF98F020008E029 /* Base */,
+				6A0C6ABD1FFBE30D0008E029 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		6A0C6ABE1FFBE30D0008E029 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6A0C6ABF1FFBE30D0008E029 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -272,10 +361,12 @@
 		};
 		6A0C6AB81FF98F020008E029 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3681ADECA69C8F7A3874DAE4 /* Pods-MobileLabSpeechKit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MobileLabSpeechKit/Info.plist;
+				DEVELOPMENT_TEAM = HY8AUX8L27;
+				INFOPLIST_FILE = MobileLabSpeechKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilelabclass.MobileLabSpeechKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -286,10 +377,12 @@
 		};
 		6A0C6AB91FF98F020008E029 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DED130387C6A24D3AF8F82D6 /* Pods-MobileLabSpeechKit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MobileLabSpeechKit/Info.plist;
+				DEVELOPMENT_TEAM = HY8AUX8L27;
+				INFOPLIST_FILE = MobileLabSpeechKit/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mobilelabclass.MobileLabSpeechKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
