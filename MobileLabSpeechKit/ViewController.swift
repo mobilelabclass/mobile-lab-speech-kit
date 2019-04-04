@@ -23,12 +23,13 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
     var recognitionTask: SFSpeechRecognitionTask?
     var recorder: AVAudioRecorder!
 
-    
     // View for audio wave form feedback.
     @IBOutlet weak var audioWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var detectedTextLabel: UILabel!
     
     var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
+    
+    var lastBestString = ""
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +38,11 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
         
         self.audioWaveView.density = 1.0
         self.audioWaveView.waveColor = UIColor.green
-        //timer = Timer.scheduledTimer(timeInterval: 0.009, target: self, selector: #selector(refreshAudioView(_:)), userInfo: nil, repeats: true)
 
-    
         if self.recorder != nil {
-            //if here it means that the record button was double clicked
             return
         }
-
-        
+    
         let url: NSURL = NSURL(fileURLWithPath: "/dev/null")
         
         let settings = [
@@ -65,16 +62,11 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
             self.recorder.record()
             
             timer = Timer.scheduledTimer(timeInterval: 0.009, target: self, selector: #selector(refreshAudioView(_:)), userInfo: nil, repeats: true)
-            
-            print("RECORDING!!!")
-            
         } catch {
-            //failed to record!
+            print("Fail to record.")
         }
-        
     }
 
-    
     func requestSpeechAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in
             OperationQueue.main.addOperation {
@@ -82,25 +74,18 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
                 case .authorized:
                     print("authorized")
                     self.recordAndRecognizeSpeech()
-
-                //                    self.startButton.isEnabled = true
                 case .denied:
                     print("denied")
-//                    self.startButton.isEnabled = false
-//                    self.detectedTextLabel.text = "User denied access to speech recognition"
                 case .restricted:
                     print("restricted")
-//                    self.startButton.isEnabled = false
-//                    self.detectedTextLabel.text = "Speech recognition restricted on this device"
                 case .notDetermined:
                     print("notDetermined")
-//                    self.startButton.isEnabled = false
-//                    self.detectedTextLabel.text = "Speech recognition not yet authorized"
+                @unknown default:
+                    return
                 }
             }
         }
     }
-    
     
     func recordAndRecognizeSpeech() {
         let node = audioEngine.inputNode
@@ -132,26 +117,28 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
                 
                 let bestString = result.bestTranscription.formattedString
                 self.detectedTextLabel.text = bestString
-                
-                print(bestString)
-                
+
                 if let lastSegment = result.bestTranscription.segments.last,
                     lastSegment.duration > self.mostRecentlyProcessedSegmentDuration {
                     self.mostRecentlyProcessedSegmentDuration = lastSegment.duration
-                    
-//                    self.detectedTextLabel.text = lastSegment.substring
-                }
-                
-                
-                /*
-                var lastString: String = ""
-                for segment in result.bestTranscription.segments {
-                    let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
-                    lastString = bestString.substring(from: indexTo)
-                }*/
 
-                
-                //              self.checkForColorsSaid(resultString: lastString)
+                    /////////////////////////////////////////////////////////////////////
+                    // Get last spoken word.
+                    // Process request here.
+                    
+                    let string = lastSegment.substring
+                    
+                    if string.lowercased() == "green" {
+                        self.view.backgroundColor = .green
+                    } else if string.lowercased() == "red" {
+                        self.view.backgroundColor = .red
+                    } else if string.lowercased() == "black" {
+                        self.view.backgroundColor = .black
+                    }
+
+                    /////////////////////////////////////////////////////////////////////
+                }
+
             } else if let error = error {
                 self.sendAlert(message: "There has been a speech recognition error.")
                 print(error)
@@ -167,28 +154,15 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
     }
     
     @objc internal func refreshAudioView(_: Timer) {
-//        if self.recorder == nil {
-//            self.endTimer()
-//
-//            return
-//        }
-        
-        //        if self.audioView.amplitude <= self.audioView.idleAmplitude || self.audioView.amplitude > 1.0 {
-        //            self.change *= -1.0
-        //        }
-        
         // Simply set the amplitude to whatever you need and the view will update itself.
         self.audioWaveView.amplitude = 0.5
 
         recorder.updateMeters()
-  //      print("Average Power: \(CGFloat(self.recorder.averagePower(forChannel: 0)))")
         
         let normalizedValue:CGFloat = pow(10, CGFloat(recorder.averagePower(forChannel: 0))/20)
         self.audioWaveView.amplitude = normalizedValue
-//        print(normalizedValue)
     }
 }
-
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
