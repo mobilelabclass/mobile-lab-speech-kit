@@ -28,6 +28,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
     @IBOutlet weak var audioWaveView: SwiftSiriWaveformView!
     @IBOutlet weak var detectedTextLabel: UILabel!
     
+    var mostRecentlyProcessedSegmentDuration: TimeInterval = 0
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,7 +60,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
             self.recorder.delegate = self
             self.recorder.isMeteringEnabled = true
             
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryRecord)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category(rawValue: convertFromAVAudioSessionCategory(AVAudioSession.Category.record)))
             
             self.recorder.record()
             
@@ -107,6 +109,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
             self.request.append(buffer)
         }
+
         audioEngine.prepare()
         do {
             try audioEngine.start()
@@ -123,28 +126,43 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
             // Recognizer is not available right now
             return
         }
+
         recognitionTask = speechRecognizer?.recognitionTask(with: request, resultHandler: { result, error in
             if let result = result {
                 
                 let bestString = result.bestTranscription.formattedString
                 self.detectedTextLabel.text = bestString
                 
+                print(bestString)
+                
+                if let lastSegment = result.bestTranscription.segments.last,
+                    lastSegment.duration > self.mostRecentlyProcessedSegmentDuration {
+                    self.mostRecentlyProcessedSegmentDuration = lastSegment.duration
+                    
+//                    self.detectedTextLabel.text = lastSegment.substring
+                }
+                
+                
+                /*
                 var lastString: String = ""
                 for segment in result.bestTranscription.segments {
                     let indexTo = bestString.index(bestString.startIndex, offsetBy: segment.substringRange.location)
                     lastString = bestString.substring(from: indexTo)
-                }
-  //              self.checkForColorsSaid(resultString: lastString)
+                }*/
+
+                
+                //              self.checkForColorsSaid(resultString: lastString)
             } else if let error = error {
                 self.sendAlert(message: "There has been a speech recognition error.")
                 print(error)
             }
+
         })
     }
     
     func sendAlert(message: String) {
-        let alert = UIAlertController(title: "Speech Recognizer Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "Speech Recognizer Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -171,3 +189,8 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVAudioRecor
     }
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
+}
